@@ -26,6 +26,7 @@ Creating a user and policy in Oracle Cloud Infrastructure (OCI) involves several
 Adjust the statements based on the specific permissions you want to grant.
 
 `Allow group <group-name> to manage instance-family in tenancy`
+
 6. Create: Click "Create" to create the policy.
 ### Step 3: Generate API Key
 1. Access Identity & Security: Navigate to the "Identity & Security" section in the Console.
