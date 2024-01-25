@@ -25,7 +25,7 @@ Creating a user and policy in Oracle Cloud Infrastructure (OCI) involves several
 5. Define Statements: Define the statements that grant permissions to the user. For example:
 Adjust the statements based on the specific permissions you want to grant.
 
-`Allow group <group-name> to manage instance-family in tenancy`
+```Allow group <group-name> to manage instance-family in tenancy```
 
 6. Create: Click "Create" to create the policy.
 ### Step 3: Generate API Key
@@ -44,18 +44,20 @@ Adjust the statements based on the specific permissions you want to grant.
 To generate an OCI (Oracle Cloud Infrastructure) configuration file (~/.oci/config), you typically follow these steps:
 1. Install OCI CLI: Make sure you have the OCI CLI (Command Line Interface) installed on your machine. You can download it from the official Oracle website.
 2. Configure OCI CLI: Run the following command in your terminal:
-  `oci setup config`
+  ```oci setup config```
 
    This command will prompt you to enter the required information interactively. You'll be asked for your user OCID, tenancy OCID, region, and whether you want to create a new API key pair or use an existing one.
 3. Alternatively, Manually Create the Configuration File:
    If you prefer creating the configuration file manually, you can follow the format you provided in your example. Create a file named config in the ~/.oci/ directory and add the following content:
-   `cat ~.oci/config
+   ```
+   cat ~.oci/config
    [DEFAULT]
    user=ocid1.user.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
    fingerprint=00:00:00:00:00:00:00:00:00:00:00:00:00:00:00:00
    tenancy=ocid1.tenancy.oc1..aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
    region=eu-frankfurt-1
-   key_file=~/.oci/instance_restart.pem`
+   key_file=~/.oci/instance_restart.pem
+   ```
    Replace the placeholders (ocid1.user.oc1.., 00:00:00:00:00:00:00:00, etc.) with your actual values. Make sure the specified key_file points to the location of your private key file generated before.
    Remember, your private key file (~/.oci/instance_restart.pem) should be kept secure, and you should not share it or expose it to unauthorized users. It's also crucial to follow OCI security best practices and manage your API keys securely.
 ## GitHub actions
@@ -98,7 +100,7 @@ Within the job steps, the OCI instance identified by the specified instance ID u
 The scheduling part is currently commented out, and it's recommended to uncomment and adjust the schedule as needed for your specific requirements. Additionally, ensure that the secrets mentioned in the workflow are properly set up in your GitHub repository.
 ## Summary
 This GitHub Actions workflow demonstrates how to manage Oracle Cloud Infrastructure (OCI) resources, specifically restarting instances. The workflow is triggered on a schedule, runs on an Ubuntu environment, and utilizes OCI CLI authentication through environment variables. A flow diagram and IAM policy ensure secure collaboration and appropriate permissions for resource management. Additional links provide access to relevant GitHub Actions for OCI and cron scheduling.
-Links:
+## Links:
 https://dmytrovedetskyi.medium.com/managing-oci-resources-using-github-actions-d893b23b25d4
 https://github.com/marketplace/actions/run-an-oracle-cloud-infrastructure-oci-cli-command
 https://github.com/marketplace/actions/set-cron-schedule
